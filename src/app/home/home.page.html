@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Productos
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="icon-only" name="add" (click)="openAlert()"></ion-icon>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ 
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let producto of productos">
+      <ion-item>
+        <ion-label>{{producto.nombre}}</ion-label>
+        <ion-label>{{producto.descripcion}}</ion-label>
+        <ion-label>{{producto.precio}}</ion-label>
+      </ion-item>
+      <ion-item-options slide="end">
+        <ion-item-option (click)="deleteProducto(producto.id,index)" color="danger">
+          <ion-icon name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+     
+    </ion-item-sliding>
+  </ion-list>
+
+  
+</ion-content>
